@@ -25,7 +25,7 @@ func main() {
 var todos = []todo{
 	{ID:"1", Item: "Wash the dishes", Completed: true},
 	{ID:"2", Item: "Clean the room", Completed: false},
-	{ID:"3", Item: "Apply for admission", Completed: false},
+	{ID:"3", Item: "Apply for admission", Completed: true},
 }
 
 func getTodos(context *gin.Context ){
