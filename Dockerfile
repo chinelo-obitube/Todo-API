@@ -1,17 +1,13 @@
-# syntax=docker/dockerfile:1
-
 FROM golang:1.17-alpine
+
+RUN mkdir -p /app
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
-RUN go mod download
+COPY . .
 
-COPY *.go ./
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -o todoapp 
 
-RUN go build -o /todo-api 
+EXPOSE 3000
 
-EXPOSE 5000
-
-CMD [ "/todo-api" ]
+ENTRYPOINT [ "/app/todoapp" ]

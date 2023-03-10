@@ -19,7 +19,7 @@ func main() {
 	router.POST("/todos", addTodo)
 	router.GET("/todos/:id", getTodos)
 	router.PATCH("/todos/:id", toggleTodoStatus)
-	router.Run("localhost:5000")
+	router.Run(":3000")
 }
 
 var todos = []todo{
