@@ -15,6 +15,7 @@ type todo struct {
 
 func main() {
 	router := gin.Default()
+	router.GET("/", homepage)
 	router.GET("/todos", getTodos)
 	router.POST("/todos", addTodo)
 	router.GET("/todos/:id", getTodos)
@@ -22,10 +23,15 @@ func main() {
 	router.Run(":3000")
 }
 
+
 var todos = []todo{
 	{ID:"1", Item: "Wash the dishes", Completed: true},
 	{ID:"2", Item: "Clean the room", Completed: false},
 	{ID:"3", Item: "Apply for admission", Completed: true},
+}
+
+func homepage(context *gin.Context){
+	context.JSON(http.StatusOK, gin.H{"Topic": "Todo List API"})
 }
 
 func getTodos(context *gin.Context ){
