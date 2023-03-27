@@ -15,9 +15,9 @@ jobs:
       - name: Login to Dockerhub
         env:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          password: ${{ secrets.DOCKER_TOKEN }}
         run:
-          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKER_TOKEN
     
       - name: Build and push
         run: docker build . --file Dockerfile --tag culnellie/todoapi:$(date+%s)
