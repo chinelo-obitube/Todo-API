@@ -73,7 +73,7 @@ func toggleTodoStatus(context *gin.Context){
 	todo, err := getTodoById(id)
 
 	if err != nil {
-		context.IndentedJSON(http.StatusNotFound, gin.H{"message":"Todo not found"})
+		context.IndentedJSON(http.StatusNotFound, gin.H{"message":"Todo is not found"})
 		return 
 	}
 	todo.Completed = !todo.Completed

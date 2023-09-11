@@ -8,6 +8,6 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -o todoapp 
 
-EXPOSE 3000
+EXPOSE 5001
 
 ENTRYPOINT [ "/app/todoapp" ]
